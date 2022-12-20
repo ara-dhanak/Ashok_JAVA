@@ -12,7 +12,7 @@
   <properties>
   <sonar.organization>aradhanak</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  <sonar.productkey>SONAR_TOKEN</sonar.productkey>
+  <sonar.productkey>Sonarcloud_Jenkinsintergration</sonar.productkey>
   <sonar.login>95096301367d8cce457268602eb7185d5a0fca15</sonar.login>
 </properties>
  
