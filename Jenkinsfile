@@ -47,11 +47,11 @@ pipeline {
                 sh ('mvn verify');
             }
         }
-	// stage('Install') {
-          //  steps {
-            //    sh ('mvn install');
-           // }
-       // }
+	 stage('Install') {
+           steps {
+                sh ('mvn install');
+            }
+        }
         
          
             
