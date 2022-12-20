@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ashoktogaru/jenkins-tomcat-sonarqube-main-project.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ara-dhanak/Ashok_JAVA.git']]])
             }
         }        
         stage('Clean') {
@@ -47,50 +47,17 @@ pipeline {
            // }
        // }
         
-         stage('Quality Gate Statuc Check'){
-              steps{
-                      script{
-                      withSonarQubeEnv('sonarserver') { 
-                      sh "mvn clean verify sonar:sonar -Dsonar.login='b2410188714318765a72f3af00350e6927c84456'"
-                       }
-                    
-		    sh "mvn clean install"
-                  }
-                }  
-              }
-        
-        stage('Upload'){
-            steps{
-                rtUpload (
-                 serverId:"Artifactory" ,
-                  spec: '''{
-                   "files": [
-                      {
-                      "pattern": "*.war",
-                      "target": "libs-snapshot-local"
-                      }
-                            ]
-                           }''',
-                        )
-            }
-        }
-        stage ('Publish build info') {
-            steps {
-                rtPublishBuildInfo (
-                    serverId: "Artifactory"
-                )
-            }
-        }
+         
             
-        stage('Stage-9 : Deployment - Deploy a Artifact devops-3.0.0-SNAPSHOT.war file to Tomcat Server') { 
+        stage('Stage-2 : Deployment - Deploy a Artifact devops-3.0.0-SNAPSHOT.war file to Tomcat Server') { 
             steps {
-                sh 'curl -u admin:redhat@123 -T target/**.war "http://44.199.205.16:8080/manager/text/deploy?path=/subhani&update=true"'
+                sh 'curl -u admin:redhat@123 -T target/**.war "https://52.66.138.8:8080/manager/text/deploy?path=/aradhana&update=true"'
             }
         } 
   
-          stage('Stage-10 : SmokeTest') { 
+          stage('Stage-3 : SmokeTest') { 
             steps {
-                sh 'curl --retry-delay 10 --retry 5 "http://44.199.205.16:8080/subhani"'
+                sh 'curl --retry-delay 10 --retry 5 "http://52.66.138.8:8080/aradhana"'
             }
         }
         
