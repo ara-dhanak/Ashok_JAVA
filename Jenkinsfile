@@ -8,7 +8,7 @@ pipeline {
         }     
 	stage ('Code Quality') {
 		steps {
-      			sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore sonar:sonar"
+      			sh "mvn -Dmaven.test.failure.ignore sonar:sonar"
   			}
 		}
 	    
