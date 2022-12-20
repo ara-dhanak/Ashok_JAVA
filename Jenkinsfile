@@ -5,7 +5,11 @@ pipeline {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ara-dhanak/Ashok_JAVA.git']]])
             }
-        }        
+        }     
+	    
+	  stage ('Code Quality') {
+      		sh "mvn -Dmaven.test.failure.ignore sonar:sonar"
+  		}    
         stage('Clean') {
             steps {
                sh "mvn -Dmaven.test.failure.ignore=true clean"
