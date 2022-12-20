@@ -15,7 +15,7 @@
         <java.version>11</java.version>
   <sonar.organization>Sonarcloud_Jenkinsintergration</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  <sonar.productkey>Sonarcloud_Jenkinsintergration</sonar.productkey>
+  <sonar.productkey>SONAR_TOKEN</sonar.productkey>
   <sonar.login>95096301367d8cce457268602eb7185d5a0fca15</sonar.login>
 </properties>
  
