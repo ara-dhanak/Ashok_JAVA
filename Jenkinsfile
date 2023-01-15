@@ -1,11 +1,33 @@
 pipeline {
     agent any
     stages {
-        stage('checkout') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ara-dhanak/Ashok_JAVA.git']]])
+        stage('Git Checkout'){
+            
+            steps{
+                
+                script{
+                    
+                    git branch: 'main', url: 'https://github.com/ara-dhanak/Ashok_JAVA.git'
+                }
             }
-        }     
+        }
+          stage(' Unit Test') {
+            steps {
+                sh ('mvn test');
+            }
+        }
+
+          stage('Int testing') {
+            steps {
+                sh mvn verify -DskipUnitTests;
+            }
+        }
+
+
+
+
+
+       
 	stage ('Code Quality') {
 		steps {
       			sh "mvn -Dmaven.test.failure.ignore sonar:sonar"
