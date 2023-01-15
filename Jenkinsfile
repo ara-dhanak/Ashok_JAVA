@@ -19,6 +19,7 @@
                     sh 'mvn test'
                 }
             }
+        }
             stage('Int testing'){
             
             steps{
@@ -28,14 +29,28 @@
                     sh 'mvn verify -DskiUnitTests'
                 }
             }
+            }
              stage('Maven Build') {
             steps {
                sh "mvn  clean"
             }
         }
+         stage(' Maven Validate') {
+            steps {
+                sh "mvn validate"
+            }
+        }
+
+         stage('Maven Compile ') {
+            steps {
+                sh "mvn compile"
+            }
+        }
+
+
 
         
         }
 
-  }
+
   
