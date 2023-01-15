@@ -19,9 +19,15 @@ pipeline {
 
           stage('Int testing') {
             steps {
-                sh mvn verify -DskipUnitTests;
+                sh ('mvn verify -DskipUnitTests');
             }
+
         }
+        	stage ('Code Quality') {
+		    steps {
+      			sh "mvn -Dmaven.test.failure.ignore sonar:sonar"
+  			}
+		}
 
 
 
