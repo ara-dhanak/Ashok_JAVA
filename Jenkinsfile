@@ -30,12 +30,12 @@
                 }
             }
             }
-             stage('Maven Build') {
+             stage('Build') {
             steps {
                sh "mvn  clean"
             }
         }
-         stage(' Maven Validate') {
+         stage('Validate') {
             steps {
                 sh "mvn validate"
             }
@@ -46,6 +46,11 @@
                 sh "mvn compile"
             }
         }
+        stage ('Code Quality') {
+		steps {
+      			sh "mvn -Dmaven.test.failure.ignore sonar:sonar"
+  			}
+		}
 
 
 
