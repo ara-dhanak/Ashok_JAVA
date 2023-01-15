@@ -9,11 +9,17 @@
   <url>http://maven.apache.org</url>
   
   <properties>
-  <sonar.organization>aradhanak</sonar.organization>
+  <sonar.organization>sca-project</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  <sonar.productkey>Sonarcloud_Jenkinsintergration</sonar.productkey>
-  <sonar.login>95096301367d8cce457268602eb7185d5a0fca15</sonar.login>
+  <sonar.productkey>sca-tool-understanding</sonar.productkey>
+  <sonar.login>4de20d8dc8b3ce99ce0a4dd3a1bd9a6e1758f628</sonar.login>
+
   </properties>
+
+  <properties>
+  <sonar.organization>sca-project</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
   
  
   <dependencies>

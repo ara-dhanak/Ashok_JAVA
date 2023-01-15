@@ -1,6 +1,6 @@
   stages {
         
-        stage('ard'){
+        stage('Git Checkout'){
             
             steps{
                 
@@ -28,6 +28,13 @@
                     sh 'mvn verify -DskiUnitTests'
                 }
             }
+             stage('Maven Build') {
+            steps {
+               sh "mvn  clean"
+            }
+        }
+
+        
         }
 
   }
